@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
-import logindata from '../../../testdata/login.json';
+
 import { faker } from '@faker-js/faker';
 
 test('Verify add employee functionality', async ({ page }) => {
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
   await page.getByRole('textbox', { name: 'Username' }).click();
-  await page.getByRole('textbox', { name: 'Username' }).fill(logindata.valid_username);
+  await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME);
   await page.getByRole('textbox', { name: 'Password' }).click();
-  await page.getByRole('textbox', { name: 'Password' }).fill(logindata.valid_password);
+  await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
   await page.getByRole('button', { name: 'Login' }).click();
   await page.getByRole('link', { name: 'PIM' }).click();
   await page.getByRole('link', { name: 'Add Employee' }).click();
