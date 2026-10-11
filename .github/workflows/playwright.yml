@@ -9,6 +9,7 @@ on:
       timezone: 'Asia/Kolkata'
 jobs:
   test:
+    environment: Login Credentials
     timeout-minutes: 60
     runs-on: ubuntu-latest
     env:
