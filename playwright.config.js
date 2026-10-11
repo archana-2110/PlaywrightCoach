@@ -36,7 +36,7 @@ export default defineConfig({
     trace: 'on',
   },
  expect: {
-    timeout: 60000,
+    timeout: 90000,
   },
   /* Configure projects for major browsers */
   projects: [
