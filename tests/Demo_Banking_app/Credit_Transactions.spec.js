@@ -8,6 +8,8 @@ test("Verify Credit Transaction", async ({ page }) => {
     await expect(page.getByRole('heading', { name: 'Welcome back, Alex' })).toBeVisible();
     await page.getByText('Transactions', { exact: true }).nth(1).click();
     await expect(page.getByRole('heading', { name: 'Transactions' })).toBeVisible();
+    await page.locator('//button[@id="all-txn-account-trigger"]').click();
+    await page.getByRole('option', { name: 'Everyday Checking', exact: true }).click();
     await page.getByRole('button', { name: 'Credits' }).click();
     await expect(page.getByRole('columnheader', { name: 'Account' })).toBeVisible();
 })
