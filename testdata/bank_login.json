@@ -1,0 +1,26 @@
+{
+  "locked_user": {
+    "username": "locked_user",
+    "password": "bank_sauce"
+  },
+  "frozen_user": {
+    "username": "frozen_user",
+    "password": "bank_sauce"
+  },
+  "overdraft_user": {
+    "username": "overdraft_user",
+    "password": "bank_sauce"
+  },
+  "slow_user": {
+    "username": "slow_user",
+    "password": "bank_sauce"
+  },
+  "error_user": {
+    "username": "error_user",
+    "password": "bank_sauce"
+  },
+  "admin_user": {
+    "username": "admin_user",
+    "password": "admin_sauce"
+  }
+}
