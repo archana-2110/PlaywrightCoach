@@ -9,15 +9,15 @@ test('Verify add employee functionality', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
   await page.getByRole('button', { name: 'Login' }).click();
-  await page.getByRole('link', { name: 'PIM' }).click();
+  await page.locator('span').filter({ hasText: 'PIM' }).first().click();
   await page.getByRole('link', { name: 'Add Employee' }).click();
   await page.getByRole('textbox', { name: 'First Name' }).click();
   await page.getByRole('textbox', { name: 'First Name' }).fill(faker.person.firstName());
   await page.getByRole('textbox', { name: 'Last Name' }).click();
   await page.getByRole('textbox', { name: 'Last Name' }).fill(faker.person.lastName());
-  await page.waitForTimeout(6000);
+  //await page.waitForTimeout(6000);
   await page.getByRole('textbox').nth(4).click();
-  //await page.getByRole('textbox').nth(4).fill(faker.number.int({ min: 5, max: 10 }).toString());
+  await page.getByRole('textbox').nth(4).fill(faker.number.int({ min: 5, max: 10 }).toString());
   await page.waitForTimeout(6000);
   await page.getByRole('button', { name: 'Save' }).click();
   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/325');
