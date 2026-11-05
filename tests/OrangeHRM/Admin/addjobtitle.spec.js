@@ -9,9 +9,10 @@ test('Verify add job title functionality', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD);
   await page.getByRole('button', { name: 'Login' }).click();
-  await page.getByText('PIM', { exact: true }).first().click();
-  await page.getByRole('button', { name: 'Add Employee' }).click();
-  await page.getByRole('textbox').nth(1).click();
+  await page.locator('span').filter({ hasText: 'Admin' }).first().click();
+  await page.getByRole('listitem').filter({ hasText: 'Job' }).locator('i').click();
+  await page.getByRole('menuitem', { name: 'Job Titles' }).click();
+  await page.getByRole('button', { name: 'Add' }).click();
   await page.getByRole('textbox').nth(1).fill(faker.person.jobTitle());
   await page.getByRole('textbox', { name: 'Type description here' }).click();
   await page.getByRole('textbox', { name: 'Type description here' }).fill(faker.person.jobDescriptor());
