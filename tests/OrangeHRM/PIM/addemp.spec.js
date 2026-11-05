@@ -9,11 +9,15 @@ test('Verify add employee functionality', async ({ page }) => {
     waitUntil: 'domcontentloaded',
   });
 
-  await expect(page.getByRole('textbox', { name: 'Username' })).toBeVisible();
   await page.getByRole('textbox', { name: 'Username' }).fill(process.env.APP_USERNAME || 'Admin');
   await page.getByRole('textbox', { name: 'Password' }).fill(process.env.APP_PASSWORD || 'admin123');
   await page.getByRole('button', { name: 'Login' }).click();
-  await page.locator('span').filter({ hasText: 'PIM' }).first().click();
+
+  await page.waitForURL(/\/dashboard\/index/, { timeout: 30000 });
+  await expect(page.getByRole('link', { name: 'PIM' })).toBeVisible({ timeout: 30000 });
+  await page.getByRole('link', { name: 'PIM' }).click();
+
+  await expect(page.getByRole('link', { name: 'Add Employee' })).toBeVisible({ timeout: 30000 });
   await page.getByRole('link', { name: 'Add Employee' }).click();
 
   await expect(page.getByRole('textbox', { name: 'First Name' })).toBeVisible({ timeout: 30000 });
