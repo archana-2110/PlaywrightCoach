@@ -18,8 +18,8 @@ test('Verify add employee functionality', async ({ page }) => {
   //await page.waitForTimeout(6000);
   await page.getByRole('textbox').nth(4).click();
   await page.getByRole('textbox').nth(4).fill(faker.number.int({ min: 5, max: 10 }).toString());
-  await page.waitForTimeout(6000);
+  //await page.waitForTimeout(6000);
   await page.getByRole('button', { name: 'Save' }).click();
-  await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/325');
+  //await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewPersonalDetails/empNumber/325');
   //await expect(page.getByRole('heading', { name: 'Archana K' })).toBeVisible();
 });
